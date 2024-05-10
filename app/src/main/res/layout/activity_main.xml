@@ -1,30 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/linearLayoutTasks"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/editTextTask"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite uma Tarefa" />
+        android:hint="Digite uma tarefa" />
 
     <Spinner
         android:id="@+id/spinnerPriority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:entries="@array/priorities"
         android:prompt="@string/priority_prompt" />
 
     <Button
         android:id="@+id/buttonAddTask"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Adicionar Tarefa" />

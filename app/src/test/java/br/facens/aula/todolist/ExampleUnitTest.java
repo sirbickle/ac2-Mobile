@@ -1,4 +1,4 @@
-package com.example.ac2_gestofinanceira;
+package br.facens.aula.todolist;
 
 import org.junit.Test;
 
