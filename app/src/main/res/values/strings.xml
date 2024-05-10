@@ -1,9 +1,3 @@
 <resources>
-    <string name="app_name">ac2- gestão financeira</string>
-    <string name="prioritary_prompt">Selecione uma propriedade</string>
-    <string-array name="priorities">
-        <item>Alta</item>
-        <item>Média</item>
-        <item>Baixa</item>
-    </string-array>
+    <string name="app_name">ac2-gestão financeira</string>
 </resources>
