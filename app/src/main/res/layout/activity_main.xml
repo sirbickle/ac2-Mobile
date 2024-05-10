@@ -5,18 +5,28 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtText1"
+        android:id="@+id/editTextTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:hint="Digite uma Tarefa" />
+
+    <Spinner
+        android:id="@+id/spinnerPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:entries="@array/priorities"
+        android:prompt="@string/priority_prompt" />
 
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/buttonAddTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_marginTop="16dp"
+        android:text="Adicionar Tarefa" />
 
 </LinearLayout>
