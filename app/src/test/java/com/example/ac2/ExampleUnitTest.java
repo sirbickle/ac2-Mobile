@@ -1,4 +1,4 @@
-package br.facens.aula.todolist;
+package com.example.ac2;
 
 import org.junit.Test;
 
