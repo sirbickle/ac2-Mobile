@@ -1,20 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayoutTasks"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/new_background"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editTextTask"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite uma tarefa" />
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atualizar foto de perfil" />
+
+    <EditText
+        android:id="@+id/editTextTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título da Tarefa" />
+
+    <EditText
+        android:id="@+id/editTextTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição da Tarefa" />
+
+    <EditText
+        android:id="@+id/editTextTaskValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Valor da Tarefa" />
+
+    <EditText
+        android:id="@+id/editTextTaskDate"
+        android:layout_width="381dp"
+        android:layout_height="wrap_content"
+        android:hint="Data da Tarefa" />
 
     <Spinner
         android:id="@+id/spinnerPriority"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:prompt="@string/priority_prompt" />
@@ -26,5 +59,18 @@
         android:layout_marginTop="16dp"
         android:text="Adicionar Tarefa" />
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
 
+    <Button
+        android:id="@+id/buttonSendTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Enviar Lista de Tarefas" />
+
+</LinearLayout>
