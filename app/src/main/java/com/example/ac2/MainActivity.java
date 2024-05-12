@@ -30,6 +30,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ac2.R;
 import com.example.ac2.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Task> tasks = new ArrayList<>();
 
+    private DatabaseReference databaseReference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         buttonSendTasks = findViewById(R.id.buttonSendTasks);
         imageView = findViewById(R.id.imageView);
         buttonFoto = findViewById(R.id.foto);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("tasks");
+
 
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(this));
         taskAdapter = new TaskAdapter(tasks);
@@ -98,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                     tasks.add(task);
                     taskAdapter.notifyDataSetChanged();
 
+                    String taskId = databaseReference.push().getKey();
+                    databaseReference.child(taskId).setValue(task);
+
                     // Limpeza dos campos de entrada de dados
                     editTextTaskTitle.setText("");
                     editTextTaskDescription.setText("");
@@ -127,6 +142,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendTasksByEmail();
+            }
+        });
+    }
+    protected void onStart() {
+        super.onStart();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                tasks.clear();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+
+                    Task task = postSnapshot.getValue(Task.class);
+                    tasks.add(task);
+                }
+                taskAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
